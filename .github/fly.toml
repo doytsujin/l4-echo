@@ -1,0 +1,23 @@
+app = "l4-demo"
+[build]
+  dockerfile = ".github/Dockerfile"
+[env]
+  PORT = 1500
+[[services]]
+  internal_port = 1500
+  protocol = "udp"
+  [services.ports]
+    port = "1500"
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 2500
+    soft_limit = 500
+[[services]]
+  internal_port = 1500
+  protocol = "tcp"
+  [services.ports]
+    port = "1500"
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 2500
+    soft_limit = 500
